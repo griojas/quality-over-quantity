@@ -1,7 +1,7 @@
 
 version: 2
 jobs:
-  build-test-devstats:
+  build-test-qoq:
     docker:
       - image: circleci/python:3.7.5
 
@@ -61,7 +61,6 @@ jobs:
 
 workflows:
   version: 2
-  validate-devstats:
+  validate-qoq:
     jobs:
-      - build-test-qoq:
-          context: Sonarqube
+      - build-test-qoq
