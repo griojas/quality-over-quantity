@@ -4,7 +4,7 @@ Quality over Quantity, provides a 360 overview of the design and development eff
 # Pre-requisites
 * python 3.7 / pip
 * sqlite
-* pyenv (optional, recommended)
+* pyenv (optional, recommended).
 
 * Build pipeline
 By default the service uses Circle Ci to run builds for every commit pushed to the repository.
