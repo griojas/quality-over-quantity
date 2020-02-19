@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Quality over Quantity, provides a 360 overview of the design and development effort">
+  <meta name="author" content="Guillermo Riojas">
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+
+  <title>{{ app_title }}</title>
+
+  <link href="http://flask.pocoo.org/docs/0.12/_static/flask-favicon.ico" rel="icon">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://getbootstrap.com/docs/3.3/examples/justified-nav/justified-nav.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+  <style>
+    heading {
+      font-family: 'Raleway', sans-serif;
+      font-size: 46px;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="container">
+
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+          <img src="/static/loop.jpg" class="img-responsive" width="80" height="45">
+        </a>
+      </nav>
+      
+    <div class="jumbotron">
+	    <heading>{{ app_title }}</heading>
+    </div>
+    <p>The service provides an easy way to link and overview Github projects with Circle CI builds. With such stats we review the quality state over time per branch.</p>
+    <p>Further data agreggation between Github and CircleCi could show estimates of time and effort spent across projects/repositories within an organisation.</p>
+    <p>Make sure to have ready your Github personal access token. If you dont have one get more information in <a href="https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line#creating-a-token">Github Help</a></p>
+    <p>Similarly, make sure you have your Circle CI token handy. Otherwise get more information in <a href="https://circleci.com/docs/2.0/managing-api-tokens/#creating-a-personal-api-token">Circle CI Help</a></p>
+
+    <br>
+    <p>To see the API docs go to <a href="/api">API Documentation</a></p>
+    <p>The documentation site allows to test the endpoints, to see the operations available drill down in the <strong>default namespace</strong></strong></p>
+  </div>
+</body>
+</html>

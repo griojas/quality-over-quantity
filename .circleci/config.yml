@@ -1,0 +1,61 @@
+
+version: 2
+jobs:
+  build-test-qoq:
+    docker:
+      - image: circleci/python:3.7.5
+
+    working_directory: ~/workspace
+
+    steps:
+      - checkout
+
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "requirements.txt" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
+
+      - run:
+          name: Prepare environment, install dependencies
+          command: |
+            python3 -m venv venv
+            source venv/bin/activate
+            pip install -r requirements.txt
+          
+      - run:
+          name: Run tests
+          command: |
+            source venv/bin/activate
+            coverage run -m pytest -v
+            coverage xml
+      
+      # The best addition to the pipeline would be to sent code coverage stats
+      # to a code quality service such as Sonarqube to profile every commit.
+      # Below the implementation steps
+
+      # - run:
+      #     name: Send code coverage stats
+      #     command: |
+      #       cd development-statistics
+      #       wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.2.0.1873-linux.zip
+      #       unzip sonar-scanner-cli-4.2.0.1873-linux.zip && mv sonar-scanner-4.2.0.1873-linux/ sonar-scanner/
+          
+      #       export SONAR_SCANNER_OPTS="-Xmx2048m"
+            
+      #       # The sonarqube variables are contained in the Sonarqube Context of Circle CI
+      #       ./sonar-scanner/bin/sonar-scanner -Dsonar.host.url=${SONARQUBE_URL} -Dsonar.login=${SONARQUBE_TOKEN}
+
+
+      - save_cache:
+          paths:
+            - ./venv
+          key: v1-dependencies-{{ checksum "requirements.txt" }}
+
+workflows:
+  version: 2
+  validate-qoq:
+    jobs:
+      - build-test-qoq:
+          context: QOQ
