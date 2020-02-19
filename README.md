@@ -9,7 +9,8 @@ Further data agreggation between Github and CircleCi could show estimates of tim
 * pyenv (optional, recommended).
 
 * Build pipeline
-By default the service uses Circle Ci to run builds for every commit pushed to the repository on any branch.
+By default the service uses Circle Ci to run builds for every commit pushed to the repository on any branch. 
+Review the file located in ```.circleci/config.yml``` 
 
 # Using the service locally
 

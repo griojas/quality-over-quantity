@@ -57,5 +57,5 @@ workflows:
   version: 2
   validate-qoq:
     jobs:
-      - build-test-qoq
+      - build-test-qoq:
           context: QOQ
